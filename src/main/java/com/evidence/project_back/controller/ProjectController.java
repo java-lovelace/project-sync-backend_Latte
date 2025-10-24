@@ -28,7 +28,8 @@ public class ProjectController {
         dto.setDescription(project.getDescription());
         dto.setResponsiblePerson(project.getResponsiblePerson());
         dto.setStatus(project.getStatus());
-        dto.setDate(project.getDate());
+        dto.setCreatedAt(project.getCreatedAt());
+        dto.setUpdatedAt(project.getUpdatedAt());
         return dto;
     }
 
@@ -65,15 +66,15 @@ public class ProjectController {
         return ResponseEntity.ok(toDTO(createdProject));
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<ProjectDTO> updateProject(@PathVariable Long id, @RequestBody ProjectDTO dto) {
-        Project updatedProject = projectService.updateProyect(id, toEntity(dto));
+        Project updatedProject = projectService.updateProject(id, toEntity(dto));
         return ResponseEntity.ok(toDTO(updatedProject));
     }
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteProyect(@PathVariable Long id) {
-        projectService.deleteProyect(id);
+        projectService.deleteProject(id);
         return ResponseEntity.noContent().build();
     }
 

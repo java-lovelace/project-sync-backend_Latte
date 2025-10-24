@@ -25,26 +25,40 @@ public class Project{
     @Column(name = "responsible_person")
     private String responsiblePerson;
 
-    @Column(updatable = false)
-    private LocalDateTime date;
+    @Column(updatable = false, nullable = false)
+    private LocalDateTime createdAt;
+
+    @Column(nullable = false)
+    private LocalDateTime updatedAt;
 
     public Project() {
     }
 
-    public Project(int id, String name, StatusProject status, String description, String responsiblePerson) {
+    public Project(int id, String name, StatusProject status, String description, String responsiblePerson, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
-        this.status = StatusProject.ACTIVE;
+        this.status = status;
         this.description = description;
         this.responsiblePerson = responsiblePerson;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    public void createdAt(){
-        this.date = LocalDateTime.now();
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    public void updatedAt(){
-        this.date = LocalDateTime.now();
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public int getId() {

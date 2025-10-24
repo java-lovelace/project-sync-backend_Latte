@@ -1,5 +1,7 @@
 package com.evidence.project_back.service;
 
+import com.evidence.project_back.model.Project;
+
 import java.util.List;
 
 public interface ProjectService {

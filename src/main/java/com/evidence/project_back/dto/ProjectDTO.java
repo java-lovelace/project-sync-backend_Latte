@@ -1,4 +1,5 @@
 package com.evidence.project_back.dto;
+import com.evidence.project_back.model.StatusProject;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -19,5 +20,8 @@ public class ProjectDTO {
     @NotBlank(message = "Responsible person is required")
     private String responsiblePerson;
 
-    private LocalDateTime date;
+    private LocalDateTime createdAt;
+
+    private LocalDateTime updatedAt;
+
 }

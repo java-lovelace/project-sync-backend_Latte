@@ -1,11 +1,14 @@
 package com.evidence.project_back.service;
 
+import com.evidence.project_back.model.StatusProject;
+import com.evidence.project_back.repository.ProjectRepository;
 import jakarta.transaction.Transactional;
 import com.evidence.project_back.model.Project;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -33,22 +36,22 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Project createProject(Project project) {
-        if(project.getStatus() == null){
-            project.setStatus(StatusProject.PENDING);
-
-        }
+        project.setStatus(StatusProject.PENDING);
+        project.setCreatedAt(LocalDateTime.now());
+        project.setUpdatedAt(LocalDateTime.now());
         return projectRepository.save(project);
     }
 
     @Override
     public Project updateProject(Long id, Project projectDetails) {
-        project existingProject = projectRepository.findById(id)
+        Project existingProject = projectRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Project not found with id: " + id));
 
         existingProject.setName(projectDetails.getName());
         existingProject.setStatus(projectDetails.getStatus());
         existingProject.setDescription(projectDetails.getDescription());
         existingProject.setResponsiblePerson(projectDetails.getResponsiblePerson());
+        existingProject.setUpdatedAt(LocalDateTime.now());
 
         return projectRepository.save(existingProject);
     }
