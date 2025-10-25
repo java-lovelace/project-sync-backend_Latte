@@ -29,5 +29,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+
 ### VS Code ###
 .vscode/
+
+# Ignorar archivos de configuración sensibles
+/src/main/resources/application.properties
+# Opcional: ignorar cualquier application.properties en subcarpetas
+**/application.properties
