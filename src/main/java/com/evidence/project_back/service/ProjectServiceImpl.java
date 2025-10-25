@@ -22,7 +22,7 @@ public class ProjectServiceImpl implements ProjectService {
         this.projectRepository = projectRepository;
     }
 
-// Implementar los metodos para que los enpoints funcionen
+
     @Override
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
