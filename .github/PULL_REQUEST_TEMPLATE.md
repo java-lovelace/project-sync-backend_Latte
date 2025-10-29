@@ -1,4 +1,4 @@
-## 1. Description (Descripción) RECUERDA HACERLO TDODO EN INGLES
+## 1. Description (Descripción) RECUERDA HACERLO TODO EN INGLES
 *(Describe en 1 o 2 frases claras qué hace este PR. ¿Cuál es el objetivo?)*
 
 Ej: "Agrega los endpoints del CRUD para Proyectos en el ProjectController y crea el ProjectService."
